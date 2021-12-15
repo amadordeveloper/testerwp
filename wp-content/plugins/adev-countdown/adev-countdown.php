@@ -45,6 +45,8 @@ function adev_countdown() {
             document.getElementById("seconds").textContent = s;
             setTimeout(countdown, 1000);
         }
+
+        countdown();
         
 
     </script>
