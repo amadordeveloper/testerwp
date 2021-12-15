@@ -7,6 +7,21 @@ Version: 1.0
 Author URI: http://amadordeveloper.com
 */
 
+
+/*
+* Enqueue jQuery
+*/
+function adev_countdown_enqueue_scripts() {
+    wp_enqueue_script( 'jquery' );
+}
+add_action( 'wp_enqueue_scripts', 'adev_countdown_enqueue_scripts' );
+
+
+
+/*
+ * Add the countdown to the page
+ */
+
 add_action('wp_footer', 'adev_countdown');
 
 function adev_countdown() {
