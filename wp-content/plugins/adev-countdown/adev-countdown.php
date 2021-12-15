@@ -18,6 +18,12 @@ function adev_countdown() {
     $date = date('2022-01-01');
     $time = date('00:00:00');
     ?>
+    
+    <div id="days"></div>
+    <div id="hours"></div>
+    <div id="minutes"></div>
+    <div id="seconds"></div>
+
     <script type="text/javascript">
         
 
@@ -50,9 +56,5 @@ function adev_countdown() {
         
 
     </script>
-    <div id="days"></div>
-    <div id="hours"></div>
-    <div id="minutes"></div>
-    <div id="seconds"></div>
     <?php
 }
