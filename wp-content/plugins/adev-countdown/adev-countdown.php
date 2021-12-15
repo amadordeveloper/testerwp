@@ -9,16 +9,6 @@ Author URI: http://amadordeveloper.com
 
 
 /*
-* Enqueue jQuery
-*/
-function adev_countdown_enqueue_scripts() {
-    wp_enqueue_script( 'jquery' );
-}
-add_action( 'wp_enqueue_scripts', 'adev_countdown_enqueue_scripts' );
-
-
-
-/*
  * Add the countdown to the page
  */
 
@@ -29,13 +19,40 @@ function adev_countdown() {
     $time = date('H:i:s', strtotime('+1 year'));
     ?>
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            jQuery('#countdown').countdown({
-                date: '<?php echo $date; ?> <?php echo $time; ?>',
-                format: 'on'
-            });
-        });
+        
+
+        // Implements countdown date and hour function for the countdown element
+
+        function countdown () {
+            var now = new Date();
+            var eventDate = new Date(<?php echo $date; ?>);
+            var currentTime = now.getTime();
+            var eventTime = eventDate.getTime();
+            var remTime = eventTime - currentTime;
+            var s = Math.floor(remTime / 1000);
+            var m = Math.floor(s / 60);
+            var h = Math.floor(m / 60);
+            var d = Math.floor(h / 24);
+            h %= 24;
+            m %= 60;
+            s %= 60;
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+            document.getElementById("days").textContent = d;
+            document.getElementById("hours").textContent = h;
+            document.getElementById("minutes").textContent = m;
+            document.getElementById("seconds").textContent = s;
+        }
+      
+        // Calls the countdown function every second
+        setInterval(countdown, 1000);
+        
+
     </script>
-    <div id="countdown"></div>
+    <div id="days"></div>
+    <div id="hours"></div>
+    <div id="minutes"></div>
+    <div id="seconds"></div>
     <?php
 }
