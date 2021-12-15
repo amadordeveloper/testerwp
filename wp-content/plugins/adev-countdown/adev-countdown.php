@@ -15,13 +15,13 @@ Author URI: http://amadordeveloper.com
 add_action('wp_footer', 'adev_countdown');
 
 function adev_countdown() {
-    $date = date('Y/m/d', strtotime('+1 year'));
-    $time = date('H:i:s', strtotime('+1 year'));
+    $date = date('2022-01-01');
+    $time = date('00:00:00');
     ?>
     <script type="text/javascript">
         
 
-        // Implements countdown date and hour function for the countdown element
+        // Implements countdown date and hour to new year function for the countdown element
 
         function countdown () {
             var now = new Date();
@@ -43,10 +43,8 @@ function adev_countdown() {
             document.getElementById("hours").textContent = h;
             document.getElementById("minutes").textContent = m;
             document.getElementById("seconds").textContent = s;
+            setTimeout(countdown, 1000);
         }
-      
-        // Calls the countdown function every second
-        setInterval(countdown, 1000);
         
 
     </script>
