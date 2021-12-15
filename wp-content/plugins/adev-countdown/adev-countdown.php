@@ -30,7 +30,7 @@ function adev_countdown() {
     ?>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
-            $('#countdown').countdown({
+            jQuery('#countdown').countdown({
                 date: '<?php echo $date; ?> <?php echo $time; ?>',
                 format: 'on'
             });
